@@ -26,13 +26,13 @@ requirements:
     - requests
     - six
 
-# don't import pyolog because it looks for config info on import...
 test:
   imports:
-    - pyOlog
+    - {{ name }}
 
 about:
   home: http://olog.github.io/
   license: MIT
   license_file: LICENSE.md
   summary: Python client for the OLog
+  dev_url: https://github.com/NSLS-II/pyOlog
