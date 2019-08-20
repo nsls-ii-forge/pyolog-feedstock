@@ -1,34 +1,38 @@
+{% set name = "pyolog" %}
 {% set version = "4.4.2" %}
+{% set sha256 = "c6094a3f9e47235dda2e3eb846762d614a5177443beb5b1243ca09fa435893d6" %}
+
 package:
-    name: pyolog
-    version: {{ version }}
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-    url: https://github.com/NSLS-II/pyOlog/archive/v{{ version }}.tar.gz
-    fn: pyolog-v{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{version}}.tar.gz
+  sha256: {{ sha256 }}
 
 build:
-    number: 0
-    script: python setup.py install --single-version-externally-managed --record=record.txt
+  noarch: python
+  number: 0
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
-    build:
-        - python
-        - setuptools
-    run:
-        - python
-        - setuptools
-        - requests
-        - keyring
-        - six
-        - ipython
+  host:
+    - python
+    - pip
+  run:
+    - python
+    - ipython
+    - keyring
+    - requests
+    - six
 
 # don't import pyolog because it looks for config info on import...
-# test:
-#   imports:
-#         - pyOlog
+test:
+  imports:
+    - pyOlog
 
 about:
-    home: http://olog.github.io/
-    license: MIT
-    summary: Python client for the OLog
+  home: http://olog.github.io/
+  license: MIT
+  license_file: LICENSE.md
+  summary: Python client for the OLog
