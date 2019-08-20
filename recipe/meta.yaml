@@ -1,4 +1,4 @@
-{% set name = "pyolog" %}
+{% set name = "pyOlog" %}
 {% set version = "4.4.2" %}
 {% set sha256 = "c6094a3f9e47235dda2e3eb846762d614a5177443beb5b1243ca09fa435893d6" %}
 
