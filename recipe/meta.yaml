@@ -26,8 +26,8 @@ requirements:
     - six
 
 test:
-  imports:
-    - pyOlog
+  commands:
+    - python -c "import os; os.environ['USER'] = os.getenv('USER', os.getenv('USERNAME', 'test')); print(os.environ['USER']); import pyOlog"
 
 about:
   home: http://olog.github.io/
