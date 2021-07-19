@@ -1,7 +1,7 @@
 cdt_name:
 - cos6
 channel_sources:
-- nsls2forge,defaults
+- nsls2forge,conda-forge
 channel_targets:
 - nsls2forge main
 docker_image:
@@ -11,7 +11,9 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- '3.9'
+- '3.7'
+target_platform:
+- linux-64
 zip_keys:
 - - cdt_name
   - docker_image

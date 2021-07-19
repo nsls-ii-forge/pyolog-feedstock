@@ -9,9 +9,10 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    - 0001-Fix-defaults-for-username.patch
 
 build:
-  noarch: python
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
@@ -28,7 +29,7 @@ requirements:
 
 test:
   imports:
-    - {{ name }}
+    - pyOlog
 
 about:
   home: http://olog.github.io/
