@@ -9,6 +9,8 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    - 0001-Fix-defaults-for-username.patch
 
 build:
   number: 0
@@ -26,8 +28,8 @@ requirements:
     - six
 
 test:
-  commands:
-    - python -c "import os; os.environ['USER'] = os.getenv('USER', os.getenv('USERNAME', 'test')); print(os.environ['USER']); import pyOlog"
+  imports:
+    - pyOlog
 
 about:
   home: http://olog.github.io/
